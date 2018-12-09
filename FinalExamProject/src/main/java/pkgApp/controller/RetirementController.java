@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import pkgApp.RetirementApp;
+import pkgCore.Retirement;
 
 public class RetirementController implements Initializable {
 
@@ -17,6 +18,21 @@ public class RetirementController implements Initializable {
 	
 	@FXML
 	private TextField txtYearsToWork;
+	
+	@FXML
+	private TextField txtAnnualReturnWorking;
+	
+	@FXML
+	private TextField txtYearsRetired;
+	
+	@FXML
+	private TextField txtAnnualReturnRetired;
+	
+	@FXML
+	private TextField txtMonthlyIncome;
+	
+	@FXML
+	private TextField txtMonthlySSI;
 	
 	@FXML
 	private Label lblSaveEachMonth;
@@ -38,18 +54,40 @@ public class RetirementController implements Initializable {
 	
 	@FXML
 	public void btnClear(ActionEvent event) {
-		Double = 
+	
+		lblSaveEachMonth.setText("");
+		lblTotalToSave.setText("");
 		
-		System.out.println("Clear pressed");
-		//Retirement rmt = new Retirement();
-		//lblSaveEachMonth.setText(rtm.AmoutToSave());
-		
+		txtYearsToWork.setText("");
+		txtAnnualReturnWorking.setText("");
+		txtYearsRetired.setText("");
+		txtAnnualReturnRetired.setText("");
+		txtMonthlyIncome.setText("");
+		txtMonthlySSI.setText("");
 		//	TODO: Clear all the text inputs
 	}
 	
 	@FXML
 	public void btnCalculate(ActionEvent event) {
 		lblSaveEachMonth.setText("100");
+		
+		int iYearsToWork = Integer.parseInt(txtYearsToWork.getText());
+		double dAnnualWorking = Double.parseDouble(txtAnnualReturnWorking.getText());
+		int iYearsRetired = Integer.parseInt(txtYearsRetired.getText());
+		double dAnnualRetired = Double.parseDouble(txtAnnualReturnRetired.getText());
+		double dMonthlyIncome = Double.parseDouble(txtMonthlyIncome.getText());
+		double dMonthlySSI =  Double.parseDouble(txtMonthlySSI.getText());
+		
+		System.out.println("Clear pressed");
+		Retirement rtm = new Retirement(iYearsToWork, dAnnualWorking, iYearsRetired, dAnnualRetired,
+				dMonthlyIncome, dMonthlySSI);
+		
+		
+		String pmt = String.format("%,.2f", rtm.AmountToSave());
+		lblSaveEachMonth.setText("$"+pmt);
+		
+		String totalToSave = String.format("%,.2f", rtm.TotalAmountSaved());
+		lblTotalToSave.setText("$" + totalToSave);
 		//	TODO: Call AmountToSave and TotalAmountSaved and populate 
 		
 	}

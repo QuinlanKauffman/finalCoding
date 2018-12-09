@@ -12,7 +12,7 @@ public class Retirement {
 	private double dMonthlySSI;
 	private double dTotalRetirement;
 	
-	//TODO: Build the contructor, getters and setters for the attributes above.
+	//TODO: Build the constructor, getters and setters for the attributes above.
 	
 	
 	public Retirement(int yearsToWork, double annualReturnWorking, int yearsRetired, double annualReturnRetired, 
