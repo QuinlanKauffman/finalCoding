@@ -83,10 +83,10 @@ public class RetirementController implements Initializable {
 				dMonthlyIncome, dMonthlySSI);
 		
 		
-		String pmt = String.format("%,.2f", rtm.AmountToSave());
+		String pmt = String.format("%,.2f", Math.abs(rtm.AmountToSave()));
 		lblSaveEachMonth.setText("$"+pmt);
 		
-		String totalToSave = String.format("%,.2f", rtm.TotalAmountSaved());
+		String totalToSave = String.format("%,.2f", Math.abs(rtm.TotalAmountSaved()));
 		lblTotalToSave.setText("$" + totalToSave);
 		//	TODO: Call AmountToSave and TotalAmountSaved and populate 
 		
