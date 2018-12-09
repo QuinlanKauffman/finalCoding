@@ -1,6 +1,7 @@
 package pkgApp.controller;
 
-import java.awt.Label;
+import javafx.scene.control.*;
+//java.awt is not the one
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -55,9 +56,8 @@ public class RetirementController implements Initializable {
 	@FXML
 	public void btnClear(ActionEvent event) {
 	
-		lblSaveEachMonth.setText("");
-		lblTotalToSave.setText("");
-		
+		//lblSaveEachMonth.setText("");
+		//lblTotalToSave.setText("");
 		txtYearsToWork.setText("");
 		txtAnnualReturnWorking.setText("");
 		txtYearsRetired.setText("");
