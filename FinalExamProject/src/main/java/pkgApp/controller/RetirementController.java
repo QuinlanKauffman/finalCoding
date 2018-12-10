@@ -1,7 +1,7 @@
 package pkgApp.controller;
 
 import javafx.scene.control.*;
-//java.awt is not the one
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
