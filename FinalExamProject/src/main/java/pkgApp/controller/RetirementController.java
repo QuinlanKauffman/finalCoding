@@ -56,8 +56,8 @@ public class RetirementController implements Initializable {
 	@FXML
 	public void btnClear(ActionEvent event) {
 	
-		//lblSaveEachMonth.setText("");
-		//lblTotalToSave.setText("");
+		lblSaveEachMonth.setText("");
+		lblTotalToSave.setText("");
 		txtYearsToWork.setText("");
 		txtAnnualReturnWorking.setText("");
 		txtYearsRetired.setText("");
@@ -69,7 +69,6 @@ public class RetirementController implements Initializable {
 	
 	@FXML
 	public void btnCalculate(ActionEvent event) {
-		lblSaveEachMonth.setText("100");
 		
 		int iYearsToWork = Integer.parseInt(txtYearsToWork.getText());
 		double dAnnualWorking = Double.parseDouble(txtAnnualReturnWorking.getText());
