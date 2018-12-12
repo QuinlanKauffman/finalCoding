@@ -2,15 +2,19 @@ package pkgApp.controller;
 
 import javafx.scene.control.*;
 
+import java.awt.Color;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.text.Font;
 import pkgApp.RetirementApp;
 import pkgCore.Retirement;
 
@@ -81,8 +85,10 @@ public class RetirementController implements Initializable {
 	private boolean workingTextFields() {	
 		for(TextField txtfield: this.listOfNumericTextfields) {
 			if ( txtfield.getText() == null || txtfield.getText() == "" 
-					|| txtfield.getText().isEmpty() || isNumeric(txtfield.getText()) == false)
+					|| txtfield.getText().isEmpty() || isNumeric(txtfield.getText()) == false){
 				return false;
+			}
+				
 		}
 		
 		for(TextField txtfield: this.listOfIntegerTextfields) {
