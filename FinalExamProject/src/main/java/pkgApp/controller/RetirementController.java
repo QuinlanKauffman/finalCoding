@@ -112,20 +112,22 @@ public class RetirementController implements Initializable {
 	{
 		for (char c : str.toCharArray())
 	    {
-	        if (!Character.isDigit(c)) return false;
+	        if (!Character.isDigit(c)) 
+	        	return false;
 	    }
 	    return true;
 	}
 	
 	
-	private void clearListOfTextfields()  {
+	private void clearBothListsOfTextfields()  {
 		this.listOfTextfields.clear();
 		this.listOfIntegerTextfields.clear();
 	}
 	
 	@FXML
 	public void btnCalculate(ActionEvent event) {
-		setListOfTextfields();
+		setBothListsOfTextfields();
+		
 		if (workingTextFields() == true) {
 			int iYearsToWork = Integer.parseInt(txtYearsToWork.getText());
 			double dAnnualWorking = Double.parseDouble(txtAnnualReturnWorking.getText());
@@ -145,7 +147,6 @@ public class RetirementController implements Initializable {
 			lblTotalToSave.setText("$" + totalToSave);
 			//	TODO: Call AmountToSave and TotalAmountSaved and populate 
 			
-			rtm = null;
 			
 			
 		}
@@ -161,10 +162,10 @@ public class RetirementController implements Initializable {
 			txtMonthlySSI.setText("");
 		}
 		
-		clearListOfTextfields();
+		clearBothListsOfTextfields();
 	}
 	
-	private void setListOfTextfields() {
+	private void setBothListsOfTextfields() {
 		this.listOfTextfields.add(this.txtAnnualReturnRetired);
 		this.listOfTextfields.add(this.txtAnnualReturnWorking);
 		this.listOfTextfields.add(this.txtMonthlyIncome);
