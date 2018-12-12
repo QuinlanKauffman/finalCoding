@@ -164,12 +164,15 @@ public class RetirementController implements Initializable {
 		else {
 			lblSaveEachMonth.setText(null);
 			lblTotalToSave.setText(null);
-			txtYearsToWork.setText(null);
-			txtAnnualReturnWorking.setText(null);
-			txtYearsRetired.setText(null);
-			txtAnnualReturnRetired.setText(null);
-			txtMonthlyIncome.setText(null);
-			txtMonthlySSI.setText(null);
+			
+			//Keep text for textfields so that doesn't clear and have to redo inputs
+			
+//			txtYearsToWork.setText(null);
+//			txtAnnualReturnWorking.setText(null);
+//			txtYearsRetired.setText(null);
+//			txtAnnualReturnRetired.setText(null);
+//			txtMonthlyIncome.setText(null);
+//			txtMonthlySSI.setText(null);
 		}
 		
 		clearBothListsOfTextfields();
