@@ -43,7 +43,7 @@ public class RetirementController implements Initializable {
 	@FXML
 	private Label lblTotalToSave;
 
-	private ArrayList<TextField> listOfTextfields = new ArrayList<TextField>();
+	private ArrayList<TextField> listOfNumericTextfields = new ArrayList<TextField>();
 	private ArrayList<TextField> listOfIntegerTextfields = new ArrayList<TextField>();
 	
 	
@@ -62,7 +62,7 @@ public class RetirementController implements Initializable {
 	@FXML
 	public void btnClear(ActionEvent event) {
 	
-		this.listOfTextfields.clear();
+		this.listOfNumericTextfields.clear();
 		this.listOfIntegerTextfields.clear();
 		
 		
@@ -79,7 +79,7 @@ public class RetirementController implements Initializable {
 	}
 	 
 	private boolean workingTextFields() {	
-		for(TextField txtfield: this.listOfTextfields) {
+		for(TextField txtfield: this.listOfNumericTextfields) {
 			if ( txtfield.getText() == null || txtfield.getText() == "" 
 					|| txtfield.getText().isEmpty() || isNumeric(txtfield.getText()) == false)
 				return false;
@@ -110,17 +110,27 @@ public class RetirementController implements Initializable {
 	
 	private  static boolean isNumeric(String str)
 	{
+		int decimalPointCounter = 0;
 		for (char c : str.toCharArray())
 	    {
+			if(c == '.') {
+				decimalPointCounter++;
+				if (decimalPointCounter > 1) {
+					return false;
+				}
+				continue;
+			}
 	        if (!Character.isDigit(c)) 
 	        	return false;
+	        else
+	        	continue;
 	    }
 	    return true;
 	}
 	
 	
 	private void clearBothListsOfTextfields()  {
-		this.listOfTextfields.clear();
+		this.listOfNumericTextfields.clear();
 		this.listOfIntegerTextfields.clear();
 	}
 	
@@ -152,26 +162,26 @@ public class RetirementController implements Initializable {
 		}
 		
 		else {
-			lblSaveEachMonth.setText("");
-			lblTotalToSave.setText("");
-			txtYearsToWork.setText("");
-			txtAnnualReturnWorking.setText("");
-			txtYearsRetired.setText("");
-			txtAnnualReturnRetired.setText("");
-			txtMonthlyIncome.setText("");
-			txtMonthlySSI.setText("");
+			lblSaveEachMonth.setText(null);
+			lblTotalToSave.setText(null);
+			txtYearsToWork.setText(null);
+			txtAnnualReturnWorking.setText(null);
+			txtYearsRetired.setText(null);
+			txtAnnualReturnRetired.setText(null);
+			txtMonthlyIncome.setText(null);
+			txtMonthlySSI.setText(null);
 		}
 		
 		clearBothListsOfTextfields();
 	}
 	
 	private void setBothListsOfTextfields() {
-		this.listOfTextfields.add(this.txtAnnualReturnRetired);
-		this.listOfTextfields.add(this.txtAnnualReturnWorking);
-		this.listOfTextfields.add(this.txtMonthlyIncome);
-		this.listOfTextfields.add(this.txtMonthlySSI);
-		this.listOfTextfields.add(this.txtYearsToWork);
-		this.listOfTextfields.add(this.txtYearsRetired);
+		this.listOfNumericTextfields.add(this.txtAnnualReturnRetired);
+		this.listOfNumericTextfields.add(this.txtAnnualReturnWorking);
+		this.listOfNumericTextfields.add(this.txtMonthlyIncome);
+		this.listOfNumericTextfields.add(this.txtMonthlySSI);
+		this.listOfNumericTextfields.add(this.txtYearsToWork);
+		this.listOfNumericTextfields.add(this.txtYearsRetired);
 		
 		
 		this.listOfIntegerTextfields.add(this.txtYearsToWork);
