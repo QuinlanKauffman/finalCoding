@@ -1,0 +1,5 @@
+.root {
+	-fx-background-image: url("piggyBank.jpg");
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 960px 620px;
+}

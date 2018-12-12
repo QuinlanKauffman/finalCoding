@@ -21,7 +21,7 @@ public class RetirementApp extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		
-		try {
+		try { 
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
 			
@@ -30,7 +30,8 @@ public class RetirementApp extends Application {
 			BorderPane ClientServerOverview = (BorderPane) loader.load();
 
 			Scene scene = new Scene(ClientServerOverview);
-
+			//scene.getStylesheets().add(getClass().getResource("/app/view/application.css"));
+			//scene.getStylesheets().add("/app/view/application.css");
 			primaryStage.setScene(scene);
 
 			// Give the controller access to the main app.
